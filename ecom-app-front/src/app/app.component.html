@@ -1,0 +1,151 @@
+<nav class="bg-white z-40 fixed w-full shadow-gray-500 shadow-sm">
+  <div class="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+
+
+    <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+    <div class="flex justify-between items-center">
+      <div>
+        <a class="text-gray-800 text-xl font-bold md:text-2xl hover:text-gray-700" href="#">Brand</a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="flex md:hidden">
+        <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+                aria-label="toggle menu">
+          <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+            <path fill-rule="evenodd"
+                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="md:flex items-center hidden">
+      <div class="flex flex-col md:flex-row md:mx-6">
+        <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0 capitalize" href="/">Home</a>
+        <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0 capitalize" routerLink="/products">Products</a>
+        <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0 capitalize" routerLink="/orders">orders</a>
+        <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0 capitalize" routerLink="/customers">Customers</a>
+        <a class="my-1 text-sm text-gray-700 font-medium hover:text-indigo-500 md:mx-4 md:my-0 capitalize" href="#">About</a>
+      </div>
+    </div>
+    <!--<div>
+      <button id="userDropdownButton1" (click)="toggleDropdown()" type="button"
+              class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 text-sm font-medium leading-none">
+        <svg *ngIf="profile;else login_icon" class="w-5 h-5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24" fill="none"
+             viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-width="2"
+                d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+        </svg>
+        <ng-template #login_icon>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M15 4H18C19.1046 4 20 4.89543 20 6L20 18C20 19.1046 19.1046 20 18 20H15M11 16L15 12M15 12L11 8M15 12H3"
+                stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+          </svg>
+        </ng-template>
+        <span *ngIf="profile;else login_template" class="text-gray-900">{{ profile.email }}</span>
+        <ng-template #login_template>
+          <button (click)="handleLogin()" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            Login
+          </button>
+        </ng-template>
+        <svg class="w-4 h-4 text-gray-900 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m19 9-7 7-7-7"/>
+        </svg>
+      </button>
+      <div id="userDropdown1" *ngIf="profile"
+           class="hidden w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg antialiased shadow ">
+        <ul class="p-2 text-start text-sm font-medium ">
+          <li><a href="#" title=""
+                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            My Account </a></li>
+          <li><a href="#" title=""
+                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            My Orders </a></li>
+          <li><a href="#" title=""
+                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            Settings </a></li>
+          <li><a href="#" title=""
+                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            Favourites </a></li>
+          <li><a href="#" title=""
+                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            Delivery Addresses </a></li>
+          <li><a href="#" title=""
+                 class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            Billing Data </a></li>
+        </ul>
+
+        <div class="p-2 text-sm font-medium text-gray-900 ">
+          <a href="#" title="" (click)="handleLogout()"
+             class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm ">
+            Log Out </a>
+        </div>
+      </div>
+    </div>-->
+    <div style="position: relative;" *ngIf="profile;else guest_template">
+      <button id="userDropdownButton1" (click)="toggleDropdown()" type="button"
+              class="inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 text-sm font-medium leading-none">
+        <svg class="w-5 h-5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-width="2"
+                d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+        </svg>
+        <span class="text-gray-900">{{ profile.email }}</span>
+        <svg class="w-4 h-4 text-gray-900 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m19 9-7 7-7-7"/>
+        </svg>
+      </button>
+
+      <div id="userDropdown1" *ngIf="profile"
+           class="hidden absolute z-10 mt-2 w-56 divide-y divide-gray-100 overflow-hidden overflow-y-auto rounded-lg shadow bg-white">
+        <ul class="p-2 text-start text-sm font-medium">
+          <li><a href="#" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2">My Account</a></li>
+          <li><a href="#" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2">My Orders</a></li>
+          <li><a href="#" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2">Settings</a></li>
+          <li><a href="#" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2">Favourites</a></li>
+          <li><a href="#" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2">Delivery Addresses</a></li>
+          <li><a href="#" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2">Billing Data</a></li>
+        </ul>
+        <div class="p-2 text-sm font-medium text-gray-900">
+          <a href="#" (click)="handleLogout()" class="inline-flex w-full items-center gap-2 rounded-md px-3 py-2">Log
+            Out</a>
+        </div>
+      </div>
+    </div>
+    <ng-template #guest_template>
+      <button (click)="handleLogin()" type="button"
+              class="inline-flex gap-1.5 items-center rounded-lg justify-center p-2 hover:bg-gray-100 text-sm font-medium leading-none">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M15 4H18C19.1046 4 20 4.89543 20 6L20 18C20 19.1046 19.1046 20 18 20H15M11 16L15 12M15 12L11 8M15 12H3"
+              stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </g>
+        </svg>
+        <span class="text-gray-900">Login</span>
+        <svg class="w-4 h-4 text-gray-900 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m19 9-7 7-7-7"/>
+        </svg>
+      </button>
+    </ng-template>
+  </div>
+</nav>
+<div class="pt-14">
+  <router-outlet></router-outlet>
+</div>
+
+
