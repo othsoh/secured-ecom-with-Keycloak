@@ -21,5 +21,8 @@ public class Product {
     private String brand;
     private String category;
     private String description;
+    private long discount;
     int size;
+    double rating;
+
 }

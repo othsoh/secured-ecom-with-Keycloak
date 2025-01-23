@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
+
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -8,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ProductsComponent implements OnInit {
   products: any[] | undefined;
+  rating: number = 5; // Add this line
 
   constructor(private http: HttpClient) {
 

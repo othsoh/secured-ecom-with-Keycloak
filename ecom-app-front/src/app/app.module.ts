@@ -9,9 +9,13 @@ import {HttpClientModule} from "@angular/common/http";
 
 
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
-import { OrdersComponent } from './ui/orders/orders.component';
-import { OrderDetailsComponent } from './ui/order-details/order-details.component';
+import {OrdersComponent} from './ui/orders/orders.component';
+import {OrderDetailsComponent} from './ui/order-details/order-details.component';
 import {NgOptimizedImage} from "@angular/common";
+import {StarRatingModule} from "angular-star-rating";
+import {HomeComponent} from "./ui/home/home.component";
+import { ProductDetailsComponent } from './ui/product-details/product-details.component';
+import { NotFountComponent } from './ui/not-fount/not-fount.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -36,22 +40,28 @@ function initializeKeycloak(keycloak: KeycloakService) {
     ProductsComponent,
     CustomersComponent,
     OrdersComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    HomeComponent,
+    ProductDetailsComponent,
+    NotFountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     KeycloakAngularModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    StarRatingModule.forRoot(),
   ],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: initializeKeycloak,
       multi: true,
-      deps: [KeycloakService]
+      deps: [KeycloakService],
+
     }
+
   ],
   bootstrap: [AppComponent]
 })

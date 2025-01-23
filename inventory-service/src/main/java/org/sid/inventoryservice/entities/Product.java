@@ -1,11 +1,7 @@
 package org.sid.inventoryservice.entities;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -24,5 +20,24 @@ public class Product {
     String brand;
     String category;
     String description;
+    long discount = 0;
     int size;
+    double discountedPrice;
+    double rating ;
+
+    @PrePersist
+    @PreUpdate
+    public void calculateDiscountedPrice() {
+        this.discountedPrice = price - (price * discount / 100);
+    }
+
+    public void setRating(long rating) {
+        if (rating < 0) {
+            this.rating = 0;
+        } else if (rating > 5) {
+            this.rating = 5;
+        } else {
+            this.rating = rating;
+        }
+    }
 }

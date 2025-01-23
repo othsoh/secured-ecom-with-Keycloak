@@ -23,7 +23,15 @@ public class ProductItem {
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Order order;
-
     @Transient
     private Product product;
+
+    @PrePersist
+    @PreUpdate
+    public void updatePrice() {
+        if (product != null) {
+            this.price = product.getPrice() * this.quantity;
+        }
+    }
+
 }

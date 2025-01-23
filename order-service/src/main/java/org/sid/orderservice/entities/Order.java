@@ -1,9 +1,7 @@
 package org.sid.orderservice.entities;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
-import org.sid.orderservice.models.Product;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,5 +21,6 @@ public class Order {
     private OrderStatus status;
     @OneToMany(mappedBy = "order")
     private List<ProductItem> productItems;
+
 
 }
